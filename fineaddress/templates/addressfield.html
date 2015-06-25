@@ -1,0 +1,111 @@
+<div class="fine-address-field-group">
+    <div class="field -fineAddressField">
+        <label>
+            <div>Address 1:</div>
+            <input class="text nicetext fullwidth js-fine-address-address1" type="text" name="{{name}}[address1]" value="{{address1}}" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Address 2:</div>
+            <input class="text nicetext fullwidth js-fine-address-address2" type="text" name="{{name}}[address2]" value="{{address2}}" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>City:</div>
+            <input class="text nicetext fullwidth js-fine-address-city" type="text" name="{{name}}[city]" value="{{city}}" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>State</div>
+            {% if not state or state|length != 2 %}
+            {% set selectedState = "OH" %}
+            {% else %}
+            {% set selectedState = state %}
+            {% endif %}
+            {% set states = [
+                ['AL','Alabama'],
+                ['AK','Alaska'],
+                ['AZ','Arizona'],
+                ['AR','Arkansas'],
+                ['CA','California'],
+                ['CO','Colorado'],
+                ['CT','Connecticut'],
+                ['DE','Delaware'],
+                ['DC','District Of Columbia'],
+                ['FL','Florida'],
+                ['GA','Georgia'],
+                ['HI','Hawaii'],
+                ['ID','Idaho'],
+                ['IL','Illinois'],
+                ['IN','Indiana'],
+                ['IA','Iowa'],
+                ['KS','Kansas'],
+                ['KY','Kentucky'],
+                ['LA','Louisiana'],
+                ['ME','Maine'],
+                ['MD','Maryland'],
+                ['MA','Massachusetts'],
+                ['MI','Michigan'],
+                ['MN','Minnesota'],
+                ['MS','Mississippi'],
+                ['MO','Missouri'],
+                ['MT','Montana'],
+                ['NE','Nebraska'],
+                ['NV','Nevada'],
+                ['NH','New Hampshire'],
+                ['NJ','New Jersey'],
+                ['NM','New Mexico'],
+                ['NY','New York'],
+                ['NC','North Carolina'],
+                ['ND','North Dakota'],
+                ['OH','Ohio'],
+                ['OK','Oklahoma'],
+                ['OR','Oregon'],
+                ['PA','Pennsylvania'],
+                ['RI','Rhode Island'],
+                ['SC','South Carolina'],
+                ['SD','South Dakota'],
+                ['TN','Tennessee'],
+                ['TX','Texas'],
+                ['UT','Utah'],
+                ['VT','Vermont'],
+                ['VA','Virginia'],
+                ['WA','Washington'],
+                ['WV','West Virginia'],
+                ['WI','Wisconsin'],
+                ['WY','Wyoming']
+            ] %}
+            <div class="select">
+                <select class="js-fine-address-state" name="{{name}}[state]">
+                    {% for s in states %}
+                    <option value="{{s[0]}}"{% if s[0] == selectedState %} selected="selected"{% endif %}>{{s[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Zip:</div>
+            <input class="text code js-fine-address-zip" type="number" name="{{name}}[zip]" value="{{zip}}" maxlength="5" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Latitude:</div>
+            <input class="text code js-fine-address-lat" type="number" name="{{name}}[lat]" value="{{lat}}" step="any" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Longitude:</div>
+            <input class="text code js-fine-address-lng" type="number" name="{{name}}[lng]" value="{{lng}}" step="any" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <a class="btn submit js-generate-cords">Generate Longitude and Latitude</a>
+    </div>
+</div>

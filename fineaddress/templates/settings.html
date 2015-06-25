@@ -1,0 +1,108 @@
+<h3>Default Settings</h3>
+<div class="field -fineAddressField">
+    <label>
+        <div>Default Address 1:</div>
+        <input class="text nicetext fullwidth" type="text" name="defaultAddress1" value="{{address1}}" />
+    </label>
+</div>
+<div class="field -fineAddressField">
+    <label>
+        <div>Default Address 2:</div>
+        <input class="text nicetext fullwidth" type="text" name="defaultAddress2" value="{{address2}}" />
+    </label>
+</div>
+<div class="field -fineAddressField">
+    <label>
+        <div>Default City:</div>
+        <input class="text nicetext fullwidth" type="text" name="defaultCity" value="{{city}}" />
+    </label>
+</div>
+<div class="field -fineAddressField">
+    <label>
+        <div>Default State</div>
+        {% if not state or state|length != 2 %}
+        {% set selectedState = "" %}
+        {% else %}
+        {% set selectedState = state %}
+        {% endif %}
+        {% set states = [
+            ['', 'None'],
+            ['AL','Alabama'],
+            ['AK','Alaska'],
+            ['AZ','Arizona'],
+            ['AR','Arkansas'],
+            ['CA','California'],
+            ['CO','Colorado'],
+            ['CT','Connecticut'],
+            ['DE','Delaware'],
+            ['DC','District Of Columbia'],
+            ['FL','Florida'],
+            ['GA','Georgia'],
+            ['HI','Hawaii'],
+            ['ID','Idaho'],
+            ['IL','Illinois'],
+            ['IN','Indiana'],
+            ['IA','Iowa'],
+            ['KS','Kansas'],
+            ['KY','Kentucky'],
+            ['LA','Louisiana'],
+            ['ME','Maine'],
+            ['MD','Maryland'],
+            ['MA','Massachusetts'],
+            ['MI','Michigan'],
+            ['MN','Minnesota'],
+            ['MS','Mississippi'],
+            ['MO','Missouri'],
+            ['MT','Montana'],
+            ['NE','Nebraska'],
+            ['NV','Nevada'],
+            ['NH','New Hampshire'],
+            ['NJ','New Jersey'],
+            ['NM','New Mexico'],
+            ['NY','New York'],
+            ['NC','North Carolina'],
+            ['ND','North Dakota'],
+            ['OH','Ohio'],
+            ['OK','Oklahoma'],
+            ['OR','Oregon'],
+            ['PA','Pennsylvania'],
+            ['RI','Rhode Island'],
+            ['SC','South Carolina'],
+            ['SD','South Dakota'],
+            ['TN','Tennessee'],
+            ['TX','Texas'],
+            ['UT','Utah'],
+            ['VT','Vermont'],
+            ['VA','Virginia'],
+            ['WA','Washington'],
+            ['WV','West Virginia'],
+            ['WI','Wisconsin'],
+            ['WY','Wyoming']
+        ] %}
+        <div class="select">
+            <select name="defaultState">
+                {% for s in states %}
+                <option value="{{s[0]}}"{% if s[0] == selectedState %} selected="selected"{% endif %}>{{s[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </label>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Default Zip:</div>
+            <input class="text code" type="number" name="defaultZip" value="{{zip}}" maxlength="5" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Default Latitude:</div>
+            <input class="text code" type="number" name="defaultLat" value="{{lat}}" />
+        </label>
+    </div>
+    <div class="field -fineAddressField">
+        <label>
+            <div>Default Longitude:</div>
+            <input class="text code" type="number" name="defaultLng" value="{{lng}}" />
+        </label><br />
+    </div>
+</div>
